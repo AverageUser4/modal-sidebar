@@ -44,6 +44,25 @@ export default function Sidebar() {
 
       </ul>
 
+      <ul className="sidebar__social-list">
+
+        {
+          social.map(social =>
+            <li key={social.id}>
+
+              <a 
+                href={social.url}
+                className="sidebar__social-link"
+              >
+                {social.icon}
+              </a>
+
+            </li>
+          )
+        }
+
+      </ul>
+
     </nav>
   );
 }
