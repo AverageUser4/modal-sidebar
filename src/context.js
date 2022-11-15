@@ -3,9 +3,24 @@ import React, { useContext } from 'react';
 const MyContext = React.createContext();
 
 function MyProvider({ children }) {
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  function toggleSidebar() {
+    setIsSidebarOpen(prev => !prev);
+  }
+
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  function toggleModal() {
+    setIsModalOpen(prev => !prev);
+  }
+
   return (
     <MyContext.Provider
-      value={['piesek', 'kotek']}
+      value={{
+        isSidebarOpen,
+        isModalOpen,
+        toggleSidebar,
+        toggleModal
+      }}
     >
 
       {children}

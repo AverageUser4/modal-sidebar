@@ -5,9 +5,13 @@ import { FaTimes } from 'react-icons/fa';
 import logoImage from '../resources/logo.svg';
 import { links, social } from '../resources/data.js';
 
+import { useMyContext } from '../context.js';
+
 export default function Sidebar() {
+  const { isSidebarOpen, toggleSidebar } = useMyContext();
+
   return (
-    <nav className="sidebar">
+    <nav className={'sidebar' + (isSidebarOpen ? ' sidebar--visible' : '')}>
 
       <div className="sidebar__top">
 
@@ -18,6 +22,7 @@ export default function Sidebar() {
 
         <button 
           className="close-button"
+          onClick={toggleSidebar}
         >
           <FaTimes/>
         </button>
